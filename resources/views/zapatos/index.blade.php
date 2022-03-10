@@ -33,15 +33,23 @@
                 <h2 class="sr-only">Products</h2>
 
                 <!-- Variable Session -->
-                @if (session()->has('error'))
-                    <div class="bg-red-100 p-4 mb-4 text-sm text-red-700" role="alert">
-                        <span class="font-semibold">{{ session('error') }}</span>
+                @if (session()->has('success'))
+                    <div class="grid lg:grid-cols-3">
+                        <div class="lg:col-start-2">
+                            <div class="text-center bg-green-100 p-4 mb-4 text-sm text-green-700 rounded-lg" role="alert">
+                                <span class="font-semibold">{{ session('success') }}</span>
+                            </div>
+                        </div>
                     </div>
                 @endif
 
-                @if (session()->has('success'))
-                    <div class="bg-green-100 p-4 mb-4 text-sm text-green-700" role="alert">
-                        <span class="font-semibold">{{ session('success') }}</span>
+                @if (session()->has('error'))
+                    <div class="grid lg:grid-cols-3 gap-4">
+                        <div class="lg:col-start-2">
+                            <div class="text-center bg-red-100 p-4 mb-4 text-sm text-red-700 rounded-lg" role="alert">
+                                <span class="font-semibold">{{ session('error') }}</span>
+                            </div>
+                        </div>
                     </div>
                 @endif
 
