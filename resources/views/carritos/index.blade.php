@@ -20,13 +20,13 @@
 
                         <div class="ml-4 flex flex-1 flex-col">
                             <div>
-                            <div class="flex justify-between text-base font-medium text-gray-900">
+                            <div class="flex justify-between text-base font-semibold text-gray-900">
                                 <h3>
                                 <a href="{{ route('zapatos.show', $carrito->zapato) }}">{{ $carrito->zapato->denominacion }}</a>
                                 </h3>
                                 <p class="ml-4">{{ $carrito->zapato->precio * $carrito->cantidad }} €</p>
                             </div>
-                            <p class="mt-1 text-sm text-gray-900">{{ $carrito->zapato->precio }} €</p>
+                            <p class="mt-1 text-sm font-medium text-gray-600">{{ $carrito->zapato->precio }} €</p>
                             </div>
                             <div class="flex flex-1 items-end justify-between text-sm">
                                 <form action="{{ route('carritos.delete', $carrito->zapato) }}" method="POST">
