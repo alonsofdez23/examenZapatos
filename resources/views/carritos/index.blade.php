@@ -80,7 +80,7 @@
                 @php
                     $total = 0;
                     foreach ($carritos as $carrito)
-                        $total += $carrito->where('zapato_id', $carrito->zapato->id)->first()->cantidad * $carrito->where('zapato_id', $carrito->zapato->id)->first()->zapato->precio;
+                        $total += $carrito->zapato->precio * $carrito->cantidad;
                 @endphp
 
                 @if ($carritos->isNotEmpty())
