@@ -15,14 +15,14 @@
                     @foreach ($carritos as $carrito)
                         <li class="flex py-6">
                         <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                            <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/a0a300da-2e16-4483-ba64-9815cf0598ac/air-force-1-07-zapatillas-lKPQ6q.png" class="h-full w-full object-cover object-center">
+                            <img src="{{ $carrito->zapato->imagen }}" class="h-full w-full object-cover object-center">
                         </div>
 
                         <div class="ml-4 flex flex-1 flex-col">
                             <div>
                             <div class="flex justify-between text-base font-medium text-gray-900">
                                 <h3>
-                                <a href="#">{{ $carrito->zapato->denominacion }}</a>
+                                <a href="{{ route('zapatos.show', $carrito->zapato) }}">{{ $carrito->zapato->denominacion }}</a>
                                 </h3>
                                 <p class="ml-4">{{ $carrito->zapato->precio * $carrito->cantidad }} €</p>
                             </div>

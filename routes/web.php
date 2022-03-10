@@ -36,6 +36,9 @@ Route::get('/zapatos', [ZapatoController::class, 'index'])
     ->name('zapatos.index')
     ->middleware('auth');
 
+Route::get('/zapatos/{zapato}', [ZapatoController::class, 'show'])
+    ->name('zapatos.show');
+
 Route::post('/carritos/meter/{zapato}', [CarritoController::class, 'add'])
     ->name('carritos.add');
 

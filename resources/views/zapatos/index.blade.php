@@ -49,7 +49,9 @@
                     @foreach ($zapatos as $zapato)
                         <div>
                             <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-                                <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/a0a300da-2e16-4483-ba64-9815cf0598ac/air-force-1-07-zapatillas-lKPQ6q.png" class="w-full h-full object-center object-cover group-hover:opacity-75">
+                                <a href="{{ route('zapatos.show', $zapato) }}">
+                                    <img src="{{ $zapato->imagen }}" class="w-full h-full object-center object-cover group-hover:opacity-75">
+                                </a>
                             </div>
                             <div class="flex justify-between items-stretch">
                                 <div>

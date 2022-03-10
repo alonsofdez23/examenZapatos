@@ -51,7 +51,9 @@ class ZapatoController extends Controller
      */
     public function show(Zapato $zapato)
     {
-        //
+        return view('zapatos.show', [
+            'zapato' => $zapato,
+        ]);
     }
 
     /**
