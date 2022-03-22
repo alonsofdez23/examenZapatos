@@ -17,6 +17,7 @@ class CarritoController extends Controller
     public function index()
     {
         return view('carritos.index', [
+            // 'carritos' => Auth::user()->carritos()->orderBy('id')->get(),
             'carritos' => Auth::user()->carritos->sortBy('id'),
         ]);
     }
@@ -67,6 +68,15 @@ class CarritoController extends Controller
     public function delete(Zapato $zapato)
     {
         $carrito = Carrito::where('zapato_id', $zapato->id)->first();
+
+        $carrito->delete();
+
+        return redirect()->route('carritos.index');
+    }
+
+    public function vaciar()
+    {
+        $carrito = Carrito::where('user_id', Auth::id());
 
         $carrito->delete();
 

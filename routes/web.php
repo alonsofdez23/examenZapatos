@@ -30,6 +30,21 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/carritos/meter/{zapato}', [ZapatoController::class, 'add'])
         ->name('zapatos.add');
+
+    Route::post('/carritos/meter/{zapato}', [CarritoController::class, 'add'])
+        ->name('carritos.add');
+
+    Route::post('/carrito/sumar/{zapato}', [CarritoController::class, 'sumar'])
+        ->name('carritos.sumar');
+
+    Route::post('/carrito/restar/{zapato}', [CarritoController::class, 'restar'])
+        ->name('carritos.restar');
+
+    Route::post('/carritos/eliminar/{zapato}', [CarritoController::class, 'delete'])
+        ->name('carritos.delete');
+
+    Route::post('/carritos/vaciar', [CarritoController::class, 'vaciar'])
+        ->name('carritos.vaciar');
 });
 
 Route::get('/zapatos', [ZapatoController::class, 'index'])
@@ -38,17 +53,5 @@ Route::get('/zapatos', [ZapatoController::class, 'index'])
 
 Route::get('/zapatos/{zapato}', [ZapatoController::class, 'show'])
     ->name('zapatos.show');
-
-Route::post('/carritos/meter/{zapato}', [CarritoController::class, 'add'])
-    ->name('carritos.add');
-
-Route::post('/carrito/sumar/{zapato}', [CarritoController::class, 'sumar'])
-    ->name('carritos.sumar');
-
-Route::post('/carrito/restar/{zapato}', [CarritoController::class, 'restar'])
-    ->name('carritos.restar');
-
-Route::post('/carritos/eliminar/{zapato}', [CarritoController::class, 'delete'])
-    ->name('carritos.delete');
 
 require __DIR__.'/auth.php';
