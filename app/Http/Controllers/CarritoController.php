@@ -24,7 +24,10 @@ class CarritoController extends Controller
 
     public function add(Zapato $zapato)
     {
-        $carrito = Carrito::where('zapato_id', $zapato->id)->first();
+        $carrito = Carrito::where([
+            ['zapato_id', $zapato->id],
+            ['user_id', Auth::id()]
+        ])->first();
 
         if ($carrito == null) {
             $carrito = new Carrito();
@@ -43,7 +46,10 @@ class CarritoController extends Controller
 
     public function sumar(Zapato $zapato)
     {
-        $carrito = Carrito::where('zapato_id', $zapato->id)->first();
+        $carrito = Carrito::where([
+            ['zapato_id', $zapato->id],
+            ['user_id', Auth::id()]
+        ])->first();
 
         $carrito->cantidad++;
         $carrito->save();
@@ -53,7 +59,10 @@ class CarritoController extends Controller
 
     public function restar(Zapato $zapato)
     {
-        $carrito = Carrito::where('zapato_id', $zapato->id)->first();
+        $carrito = Carrito::where([
+            ['zapato_id', $zapato->id],
+            ['user_id', Auth::id()]
+        ])->first();
 
         if ($carrito->cantidad == 1) {
             $carrito->delete();
@@ -67,7 +76,10 @@ class CarritoController extends Controller
 
     public function delete(Zapato $zapato)
     {
-        $carrito = Carrito::where('zapato_id', $zapato->id)->first();
+        $carrito = Carrito::where([
+            ['zapato_id', $zapato->id],
+            ['user_id', Auth::id()]
+        ])->first();
 
         $carrito->delete();
 

@@ -95,7 +95,7 @@
                         </div>
                         <div class="mt-6 flex justify-between text-center text-sm text-gray-500">
                             <div>
-                                <form action="{{ route('carritos.vaciar', $carrito->zapato) }}" method="POST">
+                                <form action="{{ route('carritos.vaciar') }}" method="POST">
                                     @csrf
                                     @method('POST')
                                     <button type="submit" class="rounded-md border text-base shadow-sm hover:bg-gray-100 px-3 py-1 text-center inline-flex items-center font-medium text-gray-600 hover:text-gray-500">
