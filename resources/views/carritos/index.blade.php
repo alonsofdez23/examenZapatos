@@ -90,8 +90,16 @@
                         <p class="font-bold">{{ $total }} €</p>
                         </div>
                         <p class="mt-0.5 text-sm text-gray-500">Gastos de envío calculados al pasar por caja.</p>
-                        <div class="mt-6">
-                        <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-gray-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-gray-700">Pasar por caja</a>
+                        <div class="grid grid-cols-none mt-6">
+                            <div class="col-start-2">
+                                <form action="{{ route('facturas.store', $carrito) }}" method="POST">
+                                @csrf
+                                @method('POST')
+                                    <button type="submit" class="rounded-md border border-transparent bg-gray-600 px-24 py-3 text-base font-semibold text-white shadow-sm hover:bg-gray-700">
+                                        Realizar pedido
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                         <div class="mt-6 flex justify-between text-center text-sm text-gray-500">
                             <div>

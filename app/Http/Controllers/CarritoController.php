@@ -24,6 +24,9 @@ class CarritoController extends Controller
 
     public function add(Zapato $zapato)
     {
+        // Registros de Carrito del usuario logueado, obteniendo el primero
+        // Auth::user()->carritos()->first();
+
         $carrito = Carrito::where([
             ['zapato_id', $zapato->id],
             ['user_id', Auth::id()]

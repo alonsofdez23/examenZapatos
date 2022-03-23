@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\ZapatoController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,11 @@ Route::get('/zapatos', [ZapatoController::class, 'index'])
     ->middleware('auth');
 
 Route::get('/zapatos/{zapato}', [ZapatoController::class, 'show'])
-    ->name('zapatos.show');
+    ->name('zapatos.show')
+    ->middleware('auth');
+
+Route::post('facturas/{id}', [FacturaController::class, 'store'])
+    ->name('facturas.store')
+    ->middleware('auth');
 
 require __DIR__.'/auth.php';
