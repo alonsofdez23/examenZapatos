@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('codigo')->unique();
             $table->string('denominacion');
             $table->decimal('precio', 6, 2);
+            $table->string('imagen')->unique();
             $table->timestamps();
         });
     }
