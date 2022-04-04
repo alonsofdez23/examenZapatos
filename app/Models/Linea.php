@@ -12,6 +12,12 @@ class Linea extends Model
 
     protected $table = 'lineas';
 
+    protected $fillable = [
+        'factura_id',
+        'zapato_id',
+        'cantidad',
+    ];
+
     /**
      * Get the zapato that owns the Linea
      *

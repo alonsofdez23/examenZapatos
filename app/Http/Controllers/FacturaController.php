@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Carrito;
 use App\Models\Factura;
 use App\Models\Linea;
-use App\Models\Zapato;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,22 +36,9 @@ class FacturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Zapato $zapato)
+    public function store(Request $request)
     {
-        $factura = new Factura();
-        $linea = new Linea();
-
-        dd($zapato->id);
-
-        $factura->user_id = Auth::user()->id;
-        $factura->save();
-
-        $linea->factura_id = $factura->id;
-        $linea->zapato_id = $carrito->zapato->id;
-        $linea->cantidad = $carrito->zapato->cantidad;
-        $linea->save();
-
-        return redirect()->route('carritos.index');
+        //
     }
 
     /**
@@ -98,5 +84,28 @@ class FacturaController extends Controller
     public function destroy(Factura $factura)
     {
         //
+    }
+
+    public function factura()
+    {
+        $factura = new Factura();
+
+        $factura->user_id = Auth::id();
+
+        $factura->save();
+
+        foreach(Auth::user()->carritos as $fila) {
+            $linea = new Linea([
+                'factura_id'=> $factura->id,
+                'zapato_id' => $fila->zapato_id,
+                'cantidad' => $fila->cantidad,
+            ]);
+
+            $linea->save();
+        }
+
+        Carrito::where('user_id', Auth::id())->delete();
+
+        return redirect()->route('carritos.index');
     }
 }
