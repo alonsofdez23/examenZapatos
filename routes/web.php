@@ -56,7 +56,7 @@ Route::get('/zapatos/{zapato}', [ZapatoController::class, 'show'])
     ->name('zapatos.show')
     ->middleware('auth');
 
-Route::post('/facturas/{id}', [FacturaController::class, 'factura'])
+Route::post('/facturas', [FacturaController::class, 'factura'])
     ->name('facturas.store')
     ->middleware('auth');
 

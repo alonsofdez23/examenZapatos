@@ -92,7 +92,7 @@
                         <p class="mt-0.5 text-sm text-gray-500">Gastos de envío calculados al pasar por caja.</p>
                         <div class="grid grid-cols-none mt-6">
                             <div class="col-start-2">
-                                <form action="{{ route('facturas.store', $carrito) }}" method="POST">
+                                <form action="{{ route('facturas.store') }}" method="POST">
                                 @csrf
                                 @method('POST')
                                     <button type="submit" class="rounded-md border border-transparent bg-gray-600 px-24 py-3 text-base font-semibold text-white shadow-sm hover:bg-gray-700">
