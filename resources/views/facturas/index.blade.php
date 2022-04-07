@@ -43,7 +43,7 @@
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     <div class="text-sm font-medium text-gray-900">
-                                                        {{ $factura->created_at }}
+                                                        {{ $factura->created_at->tz('Europe/Madrid')->isoFormat('LL') }}
                                                     </div>
                                                 </td>
                                             </tr>

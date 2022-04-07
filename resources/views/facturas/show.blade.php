@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Factura {{ $lineas->first()->factura_id }}
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Factura {{ $lineas->first()->factura_id }}
+            </h2>
+            <h2 class="font-medium text-gray-800 leading-tight">
+                Comprado el {{ $lineas->first()->factura->created_at->tz('Europe/Madrid')->isoFormat('LL, HH:mm') }}
+            </h2>
+        </div>
     </x-slot>
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
