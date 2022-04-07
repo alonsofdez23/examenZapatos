@@ -17,7 +17,9 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        //
+        return view('facturas.index', [
+            'facturas' => Factura::where('user_id', Auth::id())->get(),
+        ]);
     }
 
     /**
@@ -49,7 +51,9 @@ class FacturaController extends Controller
      */
     public function show(Factura $factura)
     {
-        //
+        return view('facturas.show', [
+            'lineas' => Factura::where('id', $factura->id)->first()->lineas,
+        ]);
     }
 
     /**

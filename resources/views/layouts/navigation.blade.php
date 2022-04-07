@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('carritos.index')" :active="request()->routeIs('carritos.index')">
                         Ver carrito ({{ Auth::user()->carritos()->sum('cantidad') }})
                     </x-nav-link>
+                    <x-nav-link :href="route('facturas.index')" :active="request()->routeIs('facturas.index')">
+                        {{ __('Facturas') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -77,6 +80,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('carritos.index')" :active="request()->routeIs('carritos.index')">
                 Ver carrito ({{ Auth::user()->carritos()->sum('cantidad') }})
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('facturas.index')" :active="request()->routeIs('facturas.index')">
+                {{ __('Facturas') }}
             </x-responsive-nav-link>
         </div>
 
